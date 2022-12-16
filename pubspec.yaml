@@ -1,0 +1,28 @@
+name: ledger_usb
+description: A Flutter plugin to operate a Ledger Nano device over USB
+version: 0.0.1
+homepage: https://github.com/RootSoft/ledger-usb
+repository: https://github.com/RootSoft/ledger-usb
+issue_tracker: https://github.com/RootSoft/ledger-usb/issues
+
+environment:
+  sdk: '>=2.17.6 <3.0.0'
+  flutter: ">=2.5.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  plugin_platform_interface: ^2.0.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0
+
+flutter:
+  plugin:
+    platforms:
+      android:
+        package: io.blockshake.ledger
+        pluginClass: LedgerUsbPlugin
+
