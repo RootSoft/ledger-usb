@@ -51,10 +51,7 @@ class LedgerUsb {
       }
 
       final result = packer.getReducedResult(acc) ?? Uint8List.fromList([]);
-      // TODO only algorand? - 2 is uint16 for response code
-      int offset = (result.length >= 2) ? 2 : 0;
-
-      output.add(result.sublist(0, result.length - offset));
+      output.add(result);
     }
 
     return Uint8List.fromList(output.expand((e) => e).toList());

@@ -23,6 +23,11 @@ public class RequestPermissionOperation extends UsbMethodCallOperation {
     public void onMethodCall(Context context, MethodCall methodCall, MethodChannel.Result result) {
         String identifier = methodCall.argument("identifier");
         UsbDevice device = usbManager.getDeviceList().get(identifier);
+        if (device == null) {
+            result.success(false);
+            return;
+        }
+
         if (usbManager.hasPermission(device)) {
             result.success(true);
             return;
