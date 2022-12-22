@@ -1,6 +1,7 @@
 import 'dart:math';
 import 'dart:typed_data';
 
+import 'package:flutter/services.dart';
 import 'package:ledger_usb/src/usb_packer.dart';
 import 'package:ledger_usb/usb_device.dart';
 
@@ -23,7 +24,7 @@ class LedgerUsb {
     return LedgerUsbPlatform.instance.open(usbDevice);
   }
 
-  Future<Uint8List> exchange(
+  Future<List<Uint8List>> exchange(
     List<Uint8List> apdus, {
     int timeout = 2000,
   }) async {
@@ -54,7 +55,7 @@ class LedgerUsb {
       output.add(result);
     }
 
-    return Uint8List.fromList(output.expand((e) => e).toList());
+    return output;
   }
 
   Future<bool> close() {
