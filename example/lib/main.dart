@@ -100,7 +100,7 @@ class _MyAppState extends State<MyApp> {
                       );
 
                       final reader = ByteDataReader();
-                      reader.add(response);
+                      reader.add(response.expand((e) => e).toList());
                       final signature = await operation.read(reader);
 
                       final signedTx = SignedTransaction(
