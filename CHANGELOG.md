@@ -1,6 +1,7 @@
 ## Unreleased
 
 - Toolchain: Flutter 3.50.0 (Dart 3.14.0) for development (`.tool-versions`). Dependencies were already at their latest versions; the minimum SDK constraints are unchanged, so consumers see no change
+- CI: pull requests and pushes to `master` run `flutter analyze`, so lint issues fail the PR (the repo had no CI before)
 
 ## 1.1.1
 
